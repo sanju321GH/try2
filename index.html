@@ -5,43 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   
   <title>Frontend Mentor | Fylo data storage component</title>
-  <!-- <link rel="stylesheet" href="/style.css"> -->
   
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
   <style>
-    .attribution { font-size: 18px; text-align: center; display: inline-block; position: absolute; left: 40%;
-    }
-    .attribution a { 
-      color: hsl(243, 100%, 93%); 
-      text-decoration: none; 
-      font-weight: 700;
-      background-image: linear-gradient(90deg, hsl(6, 100%, 80%) 0%,  hsl(335, 100%, 65%) 100%);
-       position: absolute;
-       width: 121%;
-       height: 21px;
-       top: 15px;
-       left: 105%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;600&family=Kumbh+Sans:wght@400;700&family=Montserrat:wght@500;700&family=Outfit:wght@100;300;400;600&display=swap');
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;1,300;1,700&display=swap');
+
+*{
+    font-family: Outfit;
+}
+
+body{
+    background-color: hsl(229, 57%, 11%);
+}
+#bgimg{
+    position: absolute;
+     bottom: 0%;
+     left: 0%;
+     width: 100%;
+}
+li, a{
+    list-style: none;
+    display: inline-block;
+    justify-content: space-between;
+    margin: 3px;
+    border-radius: 6px;
+}
+a{
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    background-color: hsl(229, 57%, 11%);
+}
+ul{
+    padding: 0%;
+}
+#container{
+    height: 140px;
+    width: 260px;
+    background-color: hsl(228, 56%, 26%);
+    padding: 30px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    border-top-right-radius: 85px;
+    position: absolute;
+     top: 25%;
+     left: 20%;
+    z-index: 2;
+
+}
+#logo{
+    margin-left: 3px;
+}
+#folder{
+    position: relative;
+     top: -2px;
+}
+#upload{
+    position: relative;
+     top: -4px;
+}
+#range{
+    display: flex;
+     flex-direction: row;
+}
+.range-slider-container{
+    width: 500px;
+    height: 100px;
+    background-color: hsl(228, 56%, 26%);
+    padding-left: 10px;
+    border-radius: 10px;
+    position: absolute;
+     top: 29%;
+     right: 20%;
+     z-index: 2;
+     padding: 20px;
+}
+#range{
+    width: 505px;
+    -webkit-appearance: none;
+    background-color: hsl(229, 57%, 11%);
+    border-radius: 20px;
+    height: 12px;
+    border: 1.5px solid hsl(229, 57%, 11%);
+}
+#range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    bottom: 0.4px;
+    z-index: 11;
+}
+p{
+    color: white;
+    font-weight: 400;
+}
+#range-displayer{
+    font-weight: 700;
+}
+#leftGB-displayer{
+   height: 80px;
+   width: 190px;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   position: absolute;
+   top: 23%;
+   right: 22%;
+   z-index: 3;
+   border-bottom-right-radius: 0px;
+}
+#left{
+    font-weight: 400;
+    color: black;
+}
+#GB{
+  font-size: 45px;
+}
+#shape{
+    position: absolute;
+    bottom: -20px;
+    border-right: 20px solid white;
+    border-bottom: 20px solid hsl(228, 56%, 26%);
+    right: 0px;
+    background-color: white;
+}
+#progre{
+    width: 0%;
+    border-radius: 20px;
+    height: 10px;
+    background: linear-gradient(90deg, hsl(6, 100%, 80%) 0%,  hsl(335, 100%, 65%) 100%);
+    position: absolute;
+     top: 53%;
+     left: 25px;
+    z-index: 10;
+}
   </style>
+  
 </head>
 <body>
-    <script src="/index.js">
-    </script>
+ <script>
+    function displayer(range){
+        document.getElementById("range-displayer").innerHTML = range * 5 ;
+        document.getElementById("GB").innerHTML = 1000 - (range * 5);
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {//This line was written using the help of chat GPT i dont even have clue what this line is about .When i didnt include this line and run it, it showed error in browser.
+        document.getElementById('range').oninput = function(){
+            const value = ((this.value * 5)/2) + 4 + "px";
+            document.getElementById("progre").style.width = value;
+        };
+    });
+ </script>
     <div id="container">
       <div id="logo">
-        <img src="logo.svg" alt="" id="logo">
+        <img src="/images/logo.svg" alt="" id="logo">
       </div>
       <div id="icons">
         <ul>
-          <li><a href="#"id = document><img src="/icon-document.svg" alt=""></a></li>
-          <li><a href="#"id = folder><img src="/icon-folder.svg" alt=""></a></li>
-          <li><a href="#" id="upload"><img src="/icon-upload.svg" alt=""></a></li>
+          <li><a href="#"id = document><img src="/images/icon-document.svg" alt=""></a></li>
+          <li><a href="#"id = folder><img src="/images/icon-folder.svg" alt=""></a></li>
+          <li><a href="#" id="upload"><img src="/images/icon-upload.svg" alt=""></a></li>
         </ul>
       </div>
     </div>
@@ -65,11 +200,7 @@
        <h1 style="display: inline-block;" id="GB">0</h1>
        <p style="display: inline-block;" id="left">GB left</p>
     </div>
-    <img src="bg-desktop.png" alt="" id="bgimg">
+    <img src="/images/bg-desktop.png" alt="" id="bgimg">
     <div id="progress"></div>
-    <div class="attribution">
-        <p style="display: inline-block;">Coded by</p>
-        <a href="" style="display: inline-block;">Sanju321GH</a>
-    </div>
 </body>
 </html>
