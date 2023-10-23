@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  
+  <title>Frontend Mentor | Fylo data storage component</title>
+  <!-- <link rel="stylesheet" href="/style.css"> -->
+  
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 18px; text-align: center; display: inline-block; position: absolute; left: 40%;
+    }
+    .attribution a { 
+      color: hsl(243, 100%, 93%); 
+      text-decoration: none; 
+      font-weight: 700;
+      background-image: linear-gradient(90deg, hsl(6, 100%, 80%) 0%,  hsl(335, 100%, 65%) 100%);
+       position: absolute;
+       width: 121%;
+       height: 21px;
+       top: 15px;
+       left: 105%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+    <script src="/index.js">
+    </script>
+    <div id="container">
+      <div id="logo">
+        <img src="logo.svg" alt="" id="logo">
+      </div>
+      <div id="icons">
+        <ul>
+          <li><a href="#"id = document><img src="/icon-document.svg" alt=""></a></li>
+          <li><a href="#"id = folder><img src="/icon-folder.svg" alt=""></a></li>
+          <li><a href="#" id="upload"><img src="/icon-upload.svg" alt=""></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="range-slider-container">
+      <div id="matter">
+        <p style="display: inline-block;"> you have used</p>
+        <p id="range-displayer" style="display: inline-block;">0</p>
+        <p style="display: inline-block;">out of 1000GB</p>
+      </div>
+      <div id="range-container">
+        <input type="range" min="0" max="200"value= "0" onmousemove=displayer(this.value) id="range" >
+        <div id="progre">
+
+        </div>
+        <p style="display: inline-block; position: relative;top: -10px; font-weight: 700; font-size: 11px;">0 GB</p><p style="display: inline-block; position: relative;left: 435px; top: -10px;font-weight: 700; font-size: 11px;">1000 GB</p>
+      </div>
+    </div>
+    <div id="leftGB-displayer">
+       <div id="shape">
+       </div>
+       <h1 style="display: inline-block;" id="GB">0</h1>
+       <p style="display: inline-block;" id="left">GB left</p>
+    </div>
+    <img src="bg-desktop.png" alt="" id="bgimg">
+    <div id="progress"></div>
+    <div class="attribution">
+        <p style="display: inline-block;">Coded by</p>
+        <a href="" style="display: inline-block;">Sanju321GH</a>
+    </div>
+</body>
+</html>
